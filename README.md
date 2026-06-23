@@ -1,69 +1,129 @@
-# 🚀 100 Days of Python Challenge
+# 🚀 100 Days of Python
 
-Welcome to my **100 Days of Python Journey** 🐍
+## 👋 About Me
 
-I am documenting my progress while learning Python by building projects, solving problems, and improving my programming skills every day.
+Hi, I'm Maneesh, a Computer Science Engineering (AI) student passionate about programming, problem-solving, and software development.
 
-## 📌 About This Repository
+This repository documents my journey through the **100 Days of Python Challenge**, where I learn Python by building projects, solving coding challenges, and improving my programming skills every day.
 
-This repository contains my daily Python practice and projects from the **100 Days of Python** challenge.
+---
 
-Each folder represents a day of learning and includes code, concepts, and mini-projects that I build throughout the journey.
+## 🎯 Challenge Goal
 
-## 🎯 Goals of This Challenge
+The purpose of this challenge is to:
 
-✅ Learn Python from scratch  
-✅ Build real projects daily  
-✅ Improve problem-solving skills  
-✅ Strengthen programming logic  
-✅ Stay consistent for 100 days
+- Learn Python from beginner to advanced level
+- Build consistency through daily coding
+- Improve logical thinking and problem-solving
+- Develop real-world projects
+- Create a strong GitHub portfolio
+- Prepare for internships and software development roles
 
-## 📂 Repository Structure
+---
+
+## 📚 What You'll Find Here
+
+Each folder represents one day of learning.
 
 ```text
-100-day-python/
-│
-├── Day-01/
-├── Day-02/
-├── Day-03/
-├── Day-04/
-│
-└── ...
+Day-01
+Day-02
+Day-03
+...
+Day-29
 ```
 
-## 🛠️ Skills I’m Learning
+Every day contains:
+- Python exercises
+- Mini projects
+- Coding challenges
+- Concepts learned during that day
 
-- Python Basics
-- Variables & Data Types
-- Conditional Statements
+---
+
+## 🛠 Skills Covered
+
+### Python Fundamentals
+- Variables
+- Data Types
+- Operators
+- Strings
+
+### Control Flow
+- If / Else
 - Loops
-- Functions
-- Lists, Tuples, Dictionaries
-- OOP (Object-Oriented Programming)
-- File Handling
+- Nested Loops
+
+### Functions
+- Parameters
+- Return Values
+- Scope
+
+### Data Structures
+- Lists
+- Tuples
+- Sets
+- Dictionaries
+
+### Object-Oriented Programming
+- Classes
+- Objects
+- Constructors
+- Encapsulation
+
+### File Handling
+- Reading Files
+- Writing Files
+- JSON
+
+### Intermediate Python
+- Error Handling
+- Modules
 - APIs
-- Automation
-- Problem Solving
-- Project Building
+- Project Development
 
-## 📈 Progress Tracker
+---
 
-| Day | Status |
-|------|--------|
-| Day 01 | ✅ Completed |
-| Day 02 | ⏳ In Progress |
-| Day 03 | 🔒 Locked |
+## 📈 Progress
 
-*(Will keep updating as I progress)*
+Current Progress:
 
-## 💡 Why This Repository?
+**✅ Day 29 / 100 Completed**
 
-I believe the best way to learn programming is by **building consistently**.
+Progress Bar:
 
-This repository is my journey of becoming better in Python through daily practice and hands-on projects.
+```text
+█████████░░░░░░░░░░░░░░░░░░░░░░ 29%
+```
 
-## 🤝 Connect With Me
+---
 
-Feel free to explore my projects, give suggestions, or connect with me!
+## 🔥 Why This Repository?
 
-⭐ If you like this journey, consider starring this repository.
+I believe programming is learned by building.
+
+Instead of only watching tutorials, I practice daily, write code consistently, and document my learning journey publicly through GitHub.
+
+This repository serves as:
+- My learning journal
+- My coding portfolio
+- My progress tracker
+
+---
+
+## 🚀 Future Goals
+
+- Complete all 100 days
+- Learn SQL
+- Learn Backend Development
+- Build APIs using Python
+- Learn Data Structures & Algorithms
+- Create Full Stack Projects
+
+---
+
+## ⭐ Support
+
+If you find this repository useful, feel free to star it.
+
+Thanks for visiting and following my Python journey!
