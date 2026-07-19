@@ -1,0 +1,29 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SASS/SCSS compiler cache
+.sass-cache/
+**/.sass-cache/
+
+# Environments & secrets
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Databases / local caches
+*.sqlite
+*.db
+flight_cache.sqlite
+
+# IDE/Editor settings
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
