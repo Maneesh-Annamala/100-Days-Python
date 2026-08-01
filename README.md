@@ -1,129 +1,186 @@
 # 🚀 100 Days of Python
 
-## 👋 About Me
+> **Building. Learning. Improving. One day at a time.**
 
-Hi, I'm Maneesh, a Computer Science Engineering (AI) student passionate about programming, problem-solving, and software development.
+Welcome to my **100 Days of Python** journey!
 
-This repository documents my journey through the **100 Days of Python Challenge**, where I learn Python by building projects, solving coding challenges, and improving my programming skills every day.
+I'm **Maneesh**, a Computer Science Engineering (AI) student passionate about Python, Backend Development, APIs, Automation, and Software Engineering.
 
----
-
-## 🎯 Challenge Goal
-
-The purpose of this challenge is to:
-
-- Learn Python from beginner to advanced level
-- Build consistency through daily coding
-- Improve logical thinking and problem-solving
-- Develop real-world projects
-- Create a strong GitHub portfolio
-- Prepare for internships and software development roles
+This repository documents my progress through **Angela Yu's 100 Days of Python Bootcamp**, where I challenge myself to code consistently, build real-world projects, and strengthen my problem-solving skills every single day.
 
 ---
 
-## 📚 What You'll Find Here
+# 📌 About This Repository
 
-Each folder represents one day of learning.
+This repository contains all the projects, exercises, and coding challenges I have completed throughout my Python learning journey.
 
-```text
-Day-01
-Day-02
-Day-03
-...
-Day-29
-```
+Every folder represents one day of the challenge and showcases my progress from writing simple Python programs to building complete web applications using Flask and SQLAlchemy.
 
-Every day contains:
-- Python exercises
-- Mini projects
-- Coding challenges
-- Concepts learned during that day
+Rather than only completing tutorials, I focus on understanding the concepts and implementing them through practical projects.
 
 ---
 
-## 🛠 Skills Covered
+# 🎯 Goals
 
-### Python Fundamentals
-- Variables
-- Data Types
-- Operators
-- Strings
-
-### Control Flow
-- If / Else
-- Loops
-- Nested Loops
-
-### Functions
-- Parameters
-- Return Values
-- Scope
-
-### Data Structures
-- Lists
-- Tuples
-- Sets
-- Dictionaries
-
-### Object-Oriented Programming
-- Classes
-- Objects
-- Constructors
-- Encapsulation
-
-### File Handling
-- Reading Files
-- Writing Files
-- JSON
-
-### Intermediate Python
-- Error Handling
-- Modules
-- APIs
-- Project Development
-
----
-
-## 📈 Progress
-
-Current Progress:
-
-**✅ Day 29 / 100 Completed**
-
-Progress Bar:
-
-```text
-█████████░░░░░░░░░░░░░░░░░░░░░░ 29%
-```
-
----
-
-## 🔥 Why This Repository?
-
-I believe programming is learned by building.
-
-Instead of only watching tutorials, I practice daily, write code consistently, and document my learning journey publicly through GitHub.
-
-This repository serves as:
-- My learning journal
-- My coding portfolio
-- My progress tracker
-
----
-
-## 🚀 Future Goals
-
-- Complete all 100 days
-- Learn SQL
+- Complete all 100 Days
+- Master Python programming
+- Build production-ready Python applications
+- Improve problem-solving and logical thinking
 - Learn Backend Development
-- Build APIs using Python
-- Learn Data Structures & Algorithms
-- Create Full Stack Projects
+- Build REST APIs
+- Strengthen Database knowledge
+- Create a professional developer portfolio
+- Prepare for Software Engineering internships
 
 ---
 
-## ⭐ Support
+# 📈 Current Progress
 
-If you find this repository useful, feel free to star it.
+## ✅ Day 68 / 100 Completed
 
-Thanks for visiting and following my Python journey!
+```text
+██████████████████████████████████░░░░░░░░░░░░░░░░ 68%
+✔️ Still Going Strong 🚀
+
+🧠 Topics Covered
+Python Fundamentals
+Variables
+Data Types
+Strings
+Operators
+Input / Output
+Programming Concepts
+Conditional Statements
+Loops
+Functions
+Recursion
+Scope
+Error Handling
+Debugging
+Data Structures
+Lists
+Tuples
+Sets
+Dictionaries
+Stack
+Queue
+Linked List
+Object-Oriented Programming
+Classes
+Objects
+Constructors
+Inheritance
+Encapsulation
+Static Methods
+File Handling
+Reading Files
+Writing Files
+CSV
+JSON
+Python Libraries
+Requests
+BeautifulSoup
+Selenium
+Pandas
+Flask
+Jinja
+WTForms
+SQLAlchemy
+Databases
+SQLite
+SQLAlchemy ORM
+Relationships
+CRUD Operations
+Web Development
+Flask
+HTML
+CSS
+Bootstrap
+Jinja Templates
+APIs
+REST APIs
+HTTP Methods
+JSON
+Authentication
+Automation
+Web Scraping
+Browser Automation
+Form Automation
+Bots
+Git & GitHub
+Version Control
+Commits
+Repository Management
+📂 Repository Structure
+
+Day-01/
+Day-02/
+Day-03/
+...
+Day-68/
+
+
+Each folder contains:
+
+Daily exercises
+Mini Projects
+Course Assignments
+Practice Code
+Notes & Experiments
+💻 Major Projects Built
+
+✔️ Password Manager
+
+✔️ Coffee & WiFi Website
+
+✔️ Movie Collection Website
+
+✔️ Blog Website
+
+✔️ REST API Projects
+
+✔️ Flask Authentication System
+
+✔️ Web Scraping Projects
+
+✔️ Selenium Automation Projects
+
+✔️ Internet Speed Twitter Bot
+
+✔️ Instagram Automation
+
+✔️ Data Entry Automation
+
+...and many more.
+
+🌱 What This Journey Has Taught Me
+
+This challenge has helped me improve:
+
+Problem Solving
+Debugging Skills
+Code Organization
+Project Development
+Backend Development
+Database Design
+Consistency
+Software Development Workflow
+
+Most importantly, it has taught me that consistency beats intensity.
+
+🚀 Next Milestones
+Complete Day 100
+Build Advanced Flask Applications
+Build AI Projects
+Master DSA
+Learn FastAPI
+Deploy Full-Stack Applications
+⭐ Support
+
+If you found this repository useful or inspiring, consider giving it a ⭐ Star.
+
+It motivates me to continue building and learning.
+
+Thank you for visiting my repository!
+
+Happy Coding! 🐍
