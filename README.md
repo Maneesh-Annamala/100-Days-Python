@@ -1,129 +1,320 @@
 # 🚀 100 Days of Python
 
-## 👋 About Me
+> **Building. Learning. Improving. One day at a time. 🐍**
 
-Hi, I'm Maneesh, a Computer Science Engineering (AI) student passionate about programming, problem-solving, and software development.
+Welcome to my **100 Days of Python** journey!
 
-This repository documents my journey through the **100 Days of Python Challenge**, where I learn Python by building projects, solving coding challenges, and improving my programming skills every day.
+Hi, I'm **Maneesh**, a Computer Science Engineering (AI) student with a passion for **Python, Backend Development, APIs, Automation, Problem Solving, and Software Engineering**.
 
----
+This repository documents my journey through **Angela Yu's 100 Days of Python Bootcamp**, where I challenge myself to code consistently, build real-world projects, and improve my programming skills every single day.
 
-## 🎯 Challenge Goal
-
-The purpose of this challenge is to:
-
-- Learn Python from beginner to advanced level
-- Build consistency through daily coding
-- Improve logical thinking and problem-solving
-- Develop real-world projects
-- Create a strong GitHub portfolio
-- Prepare for internships and software development roles
+The goal of this repository isn't just to complete a course—it's to become a better developer by understanding concepts deeply, writing clean code, and building practical applications.
 
 ---
 
-## 📚 What You'll Find Here
+# 📌 About This Repository
 
-Each folder represents one day of learning.
+This repository contains everything I've learned throughout my **100 Days of Python** challenge.
+
+Each folder represents one day of learning and includes:
+
+- 🐍 Python Exercises
+- 💻 Mini Projects
+- 🚀 Real-World Applications
+- 🧩 Coding Challenges
+- 📚 Concepts Learned
+- 🔬 Experiments & Practice Code
+
+As the days progressed, the projects became increasingly challenging—from simple beginner programs to full-stack backend applications built with Flask and SQLAlchemy.
+
+---
+
+# 🎯 Goals
+
+- ✅ Complete the 100 Days of Python Challenge
+- 🐍 Master Python Programming
+- 💡 Improve Problem Solving Skills
+- ⚡ Build Real-World Projects
+- 🌐 Learn Backend Development
+- 🔗 Build REST APIs
+- 🗄️ Master SQL & Databases
+- 🤖 Learn Automation & Web Scraping
+- 💼 Build a Strong Developer Portfolio
+- 🎓 Prepare for Software Engineering Internships
+
+---
+
+# 📈 Current Progress
+
+## ✅ Day 68 / 100 Completed
 
 ```text
-Day-01
-Day-02
-Day-03
-...
-Day-29
+██████████████████████████████████░░░░░░░░░░░░ 68%
 ```
 
-Every day contains:
-- Python exercises
-- Mini projects
-- Coding challenges
-- Concepts learned during that day
+🎯 **Still Learning. Still Building. Still Improving.**
 
 ---
 
-## 🛠 Skills Covered
+# 🛠️ Technologies & Concepts Covered
 
-### Python Fundamentals
+## 🐍 Python Fundamentals
+
 - Variables
 - Data Types
-- Operators
 - Strings
+- Operators
+- User Input
+- Type Conversion
 
-### Control Flow
+---
+
+## 🔀 Control Flow
+
 - If / Else
+- Nested Conditions
 - Loops
-- Nested Loops
+- Match Statements
 
-### Functions
+---
+
+## 🧠 Functions
+
 - Parameters
 - Return Values
 - Scope
+- Recursion
+- Lambda Functions
+- Higher Order Functions
 
-### Data Structures
+---
+
+## 📦 Data Structures
+
 - Lists
 - Tuples
 - Sets
 - Dictionaries
+- List Comprehensions
+- Dictionary Comprehensions
 
-### Object-Oriented Programming
-- Classes
-- Objects
+---
+
+## 🏗 Object-Oriented Programming
+
+- Classes & Objects
 - Constructors
+- Instance & Class Variables
 - Encapsulation
+- Inheritance
+- Polymorphism
+- Static Methods
 
-### File Handling
+---
+
+## 📂 File Handling
+
 - Reading Files
 - Writing Files
-- JSON
-
-### Intermediate Python
-- Error Handling
-- Modules
-- APIs
-- Project Development
+- CSV Files
+- JSON Files
+- File System Operations
 
 ---
 
-## 📈 Progress
+## 🌐 Web Development
 
-Current Progress:
+- Flask
+- Jinja Templates
+- HTML
+- CSS
+- Bootstrap
+- Forms
+- Template Inheritance
 
-**✅ Day 29 / 100 Completed**
+---
 
-Progress Bar:
+## 🗄 Database
+
+- SQLite
+- SQLAlchemy ORM
+- Relationships
+- CRUD Operations
+- Database Design
+
+---
+
+## 🔐 Authentication
+
+- User Registration
+- Login System
+- Password Hashing
+- Flask-Login
+- User Sessions
+
+---
+
+## 🔗 APIs
+
+- REST APIs
+- HTTP Methods
+- JSON
+- API Requests
+- API Integration
+
+---
+
+## 🤖 Automation
+
+- Selenium
+- BeautifulSoup
+- Web Scraping
+- Browser Automation
+- Form Automation
+
+---
+
+## 📊 Python Libraries
+
+- Flask
+- Requests
+- Pandas
+- BeautifulSoup
+- Selenium
+- SQLAlchemy
+- WTForms
+- Flask-Bootstrap
+- Flask-Login
+
+---
+
+## 💻 Development Tools
+
+- Git
+- GitHub
+- VS Code
+- SQLite
+- Postman
+
+---
+
+# 🚀 Major Projects Completed
+
+✔️ Password Manager
+
+✔️ Coffee & WiFi Website
+
+✔️ Movie Collection App
+
+✔️ Personal Blog Website
+
+✔️ Blog Authentication System
+
+✔️ REST API Projects
+
+✔️ Flask Web Applications
+
+✔️ Data Entry Automation
+
+✔️ Internet Speed Twitter Bot
+
+✔️ Selenium Automation Projects
+
+✔️ Web Scraping Projects
+
+✔️ HTML & CSS Websites
+
+✔️ Database Driven Applications
+
+✔️ Authentication Projects
+
+...and many more projects throughout the challenge.
+
+---
+
+# 📂 Repository Structure
 
 ```text
-█████████░░░░░░░░░░░░░░░░░░░░░░ 29%
+100-Days-Python/
+
+├── Day-01/
+├── Day-02/
+├── Day-03/
+├── ...
+├── Day-68/
+│
+└── README.md
 ```
 
----
+Each day's folder contains:
 
-## 🔥 Why This Repository?
-
-I believe programming is learned by building.
-
-Instead of only watching tutorials, I practice daily, write code consistently, and document my learning journey publicly through GitHub.
-
-This repository serves as:
-- My learning journal
-- My coding portfolio
-- My progress tracker
+- Exercises
+- Projects
+- Practice Programs
+- Learning Notes
+- Challenges
 
 ---
 
-## 🚀 Future Goals
+# 🌱 What I've Learned
 
-- Complete all 100 days
-- Learn SQL
-- Learn Backend Development
-- Build APIs using Python
-- Learn Data Structures & Algorithms
-- Create Full Stack Projects
+This journey has taught me much more than just Python.
+
+I've improved in:
+
+- 🧠 Problem Solving
+- 🐞 Debugging
+- 🏗 Project Development
+- 📐 Writing Clean Code
+- ⚡ Backend Development
+- 🗄 Database Design
+- 🔄 Version Control
+- 🤝 Software Development Workflow
+- 📖 Reading Documentation
+- 🚀 Building Complete Applications
+
+Most importantly...
+
+> **Consistency beats motivation.**
+
+Writing code every single day has helped me improve far more than simply watching tutorials.
 
 ---
 
-## ⭐ Support
+# 🎯 What's Next?
 
-If you find this repository useful, feel free to star it.
+After completing this challenge, my roadmap includes:
 
-Thanks for visiting and following my Python journey!
+- ✅ Complete Day 100
+- 🌐 Advanced Flask Development
+- ⚡ FastAPI
+- 🧠 Data Structures & Algorithms
+- 🐘 PostgreSQL
+- ☁️ Deployment (Render / Railway / AWS)
+- 🐳 Docker
+- 🔥 Full Stack Development
+- 🤖 AI & Machine Learning Projects
+
+---
+
+# 🤝 Let's Connect
+
+I'm always open to learning, collaboration, and connecting with fellow developers.
+
+If you have suggestions, feedback, or ideas to improve any project, feel free to open an issue or connect with me.
+
+---
+
+# ⭐ Support
+
+If you found this repository helpful or inspiring, please consider giving it a **⭐ Star**.
+
+Your support motivates me to continue learning, building, and sharing my journey.
+
+---
+
+## 🚀 Thank You for Visiting!
+
+*"Every expert was once a beginner who never stopped coding."*
+
+**Happy Coding! 🐍**
