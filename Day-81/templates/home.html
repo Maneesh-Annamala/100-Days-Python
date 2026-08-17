@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maneesh Annamala | Portfolio</title>
+
+    {{ bootstrap.load_css() }}
+
+    <style>
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        .hero {
+            min-height: 75vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 20px auto;
+            font-size: 1.15rem;
+            color: #555;
+        }
+
+        .portfolio-btn {
+            margin: 8px;
+            padding: 12px 25px;
+
+            transition: 0.3s;
+        }
+
+        .portfolio-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 18px rgba(13, 110, 253, 0.7);
+        }
+
+        .about-section {
+            padding: 70px 20px;
+            background-color: white;
+        }
+
+        .about-section h2 {
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+            Maneesh Annamala
+        </a>
+
+        <div class="navbar-nav ms-auto">
+
+            <a class="nav-link" href="#about">
+                About
+            </a>
+
+            <a class="nav-link" href="{{ url_for('contact') }}">
+                Contact
+            </a>
+
+            <a class="nav-link"
+               href="YOUR_LINKEDIN_URL"
+               target="_blank">
+                LinkedIn
+            </a>
+
+            <a class="nav-link"
+               href="YOUR_GITHUB_URL"
+               target="_blank">
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- Hero Section -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <h1>Hello, I'm Maneesh 👋</h1>
+
+        <p>
+            I'm passionate about Python Backend Development,
+            Artificial Intelligence, and DevOps. I enjoy learning
+            by building projects, solving problems, and understanding
+            how things work behind the scenes.
+        </p>
+
+        <p>
+            If you share similar interests, are working on something
+            interesting, or would like to collaborate or discuss a
+            business opportunity, I'd be happy to connect.
+        </p>
+
+        <div>
+
+            <a href="#about"
+               class="btn btn-outline-primary portfolio-btn">
+                About Me
+            </a>
+
+            <a href="{{ url_for('contact') }}"
+               class="btn btn-primary portfolio-btn">
+                Contact Me
+            </a>
+
+            <a href="https://www.linkedin.com/in/maneesh-annamala/"
+               target="_blank"
+               class="btn btn-outline-primary portfolio-btn">
+                LinkedIn
+            </a>
+
+            <a href="https://github.com/Maneesh-Annamala"
+               target="_blank"
+               class="btn btn-dark portfolio-btn">
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- About Section -->
+
+<section id="about" class="about-section">
+
+    <div class="container text-center">
+
+        <h2>About Me</h2>
+
+        <div class="about-text">
+
+            <p>
+                I'm Maneesh Annamala, a Computer Science student
+                interested in Python Backend Development,
+                Artificial Intelligence, and DevOps.
+            </p>
+
+            <p>
+                I enjoy learning by building projects and solving
+                problems rather than just studying concepts
+                theoretically. I'm currently focused on improving
+                my Python and backend development skills, especially
+                with Flask and FastAPI, while also exploring databases,
+                APIs, and authentication.
+            </p>
+
+            <p>
+                My long-term goal is to become a strong Backend and
+                AI Engineer with a good understanding of DevOps,
+                cloud technologies, and deployment. I want to build
+                useful applications and understand the complete
+                journey from writing the code to deploying and
+                maintaining it.
+            </p>
+
+            <p>
+                I'm always interested in connecting with people who
+                have similar interests, working on interesting
+                projects, or looking for opportunities to collaborate.
+                If you think we could work together, feel free to
+                reach out through the contact page.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{{ bootstrap.load_js() }}
+
+</body>
+</html>

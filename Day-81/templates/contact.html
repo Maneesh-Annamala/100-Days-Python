@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | Maneesh Annamala</title>
+
+    {{ bootstrap.load_css() }}
+
+    <style>
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .contact-container {
+            max-width: 650px;
+            margin: 80px auto;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-btn {
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(13, 110, 253, 0.7);
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container contact-container">
+
+    <div class="contact-card">
+
+        <h1 class="text-center mb-4">
+            Contact Me
+        </h1>
+
+        <form method="POST">
+
+            {{ form_data.hidden_tag() }}
+
+            <div class="mb-3">
+
+                {{ form_data.Name.label(class="form-label") }}
+
+                {{ form_data.Name(
+                    class="form-control",
+                    placeholder="Enter your name"
+                ) }}
+
+            </div>
+
+
+            <div class="mb-3">
+
+                {{ form_data.purpose.label(class="form-label") }}
+
+                {{ form_data.purpose(
+                    class="form-control",
+                    placeholder="Why would you like to contact me?"
+                ) }}
+
+            </div>
+
+
+            <div class="mb-3">
+
+                {{ form_data.mobile.label(class="form-label") }}
+
+                {{ form_data.mobile(
+                    class="form-control",
+                    placeholder="Enter your mobile number"
+                ) }}
+
+            </div>
+
+
+            <div class="mb-3">
+
+                {{ form_data.email.label(class="form-label") }}
+
+                {{ form_data.email(
+                    class="form-control",
+                    placeholder="Enter your email"
+                ) }}
+
+            </div>
+
+
+            {{ form_data.submit(
+                class="btn btn-primary w-100 submit-btn"
+            ) }}
+
+        </form>
+
+    </div>
+
+</div>
+
+{{ bootstrap.load_js() }}
+
+</body>
+
+</html>

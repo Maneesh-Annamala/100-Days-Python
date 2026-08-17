@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maneesh Annamala | Portfolio</title>
+
+    {{ bootstrap.load_css() }}
+
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+                url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+        }
+
+        .welcome-box {
+            text-align: center;
+        }
+
+        .welcome-box h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .welcome-box p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+        }
+
+        .explore-btn {
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .explore-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 20px rgba(13, 110, 253, 0.9);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="welcome-box">
+
+    <h1>Welcome To Maneesh Annamala's Portfolio</h1>
+
+    <p>
+        Python Backend & AI Enthusiast
+    </p>
+
+    <a href="{{ url_for('home') }}"
+       class="btn btn-primary explore-btn">
+        Explore
+    </a>
+
+</div>
+
+</body>
+</html>
