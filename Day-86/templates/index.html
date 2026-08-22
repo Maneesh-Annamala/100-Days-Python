@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Cafe Manager{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+  <div class="row align-items-center g-4">
+    <div class="col-lg-7">
+      <p class="eyebrow mb-2">Work-friendly cafe directory</p>
+      <h1 class="display-5 fw-bold mb-3">Discover cafes with WiFi, sockets, quiet seats, and good coffee.</h1>
+      <p class="lead hero-copy mb-4">
+        Keep your favorite cafe spots organized, compare amenities quickly, and pick a place for your next focused session.
+      </p>
+      <div class="d-flex flex-wrap gap-2">
+        <a class="btn btn-coffee btn-lg" href="{{ url_for('all_data') }}">View Cafes</a>
+        <a class="btn btn-outline-coffee btn-lg" href="{{ url_for('get_random') }}">Random Cafe</a>
+        <a class="btn btn-light btn-lg" href="{{ url_for('add') }}">Add New</a>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="hero-panel">
+        <div class="steam-line"></div>
+        <div class="cup-shape">
+          <div class="cup-body"></div>
+          <div class="cup-handle"></div>
+          <div class="saucer"></div>
+        </div>
+        <div class="hero-stat">
+          <strong>Ready to browse</strong>
+          <span>Filter by location from the navbar.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quick-actions mt-5">
+  <div class="row g-3">
+    <div class="col-md-4">
+      <a class="action-tile" href="{{ url_for('all_data') }}">
+        <span class="action-title">All cafes</span>
+        <span class="action-copy">Browse your full collection.</span>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a class="action-tile" href="{{ url_for('get_random') }}">
+        <span class="action-title">Random pick</span>
+        <span class="action-copy">Let the app choose for you.</span>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a class="action-tile" href="{{ url_for('add') }}">
+        <span class="action-title">Add cafe</span>
+        <span class="action-copy">Save a new spot with amenities.</span>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

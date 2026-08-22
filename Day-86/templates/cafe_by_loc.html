@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Location Results | Cafe Manager{% endblock %}
+
+{% macro amenity(label, enabled) %}
+  <span class="amenity {{ 'amenity-on' if enabled else 'amenity-off' }}">{{ label }}</span>
+{% endmacro %}
+
+{% macro cafe_card(cafe) %}
+  <div class="col">
+    <article class="cafe-card h-100">
+      <img class="cafe-image" src="{{ cafe.img_url }}" alt="{{ cafe.name }}">
+      <div class="cafe-body">
+        <div class="d-flex justify-content-between align-items-start gap-3">
+          <div>
+            <h2 class="h5 mb-1">{{ cafe.name }}</h2>
+            <p class="text-muted mb-0">{{ cafe.location }}</p>
+          </div>
+          {% if cafe.coffee_price %}
+            <span class="price-pill">{{ cafe.coffee_price }}</span>
+          {% endif %}
+        </div>
+
+        <div class="amenity-row my-3">
+          {{ amenity("Toilet", cafe.has_toilet) }}
+          {{ amenity("WiFi", cafe.has_wifi) }}
+          {{ amenity("Sockets", cafe.has_sockets) }}
+          {{ amenity("Calls", cafe.can_take_calls) }}
+        </div>
+
+        <p class="small text-muted mb-3">Seats: {{ cafe.seats }}</p>
+
+        <div class="cafe-actions">
+          <a class="btn btn-sm btn-outline-coffee" href="{{ cafe.map_url }}" target="_blank" rel="noopener">Map</a>
+          <a class="btn btn-sm btn-coffee" href="{{ url_for('edit', caf_id=cafe.id) }}">Edit</a>
+          <form method="POST" action="{{ url_for('delete_cafe', caf_id=cafe.id) }}" onsubmit="return confirm('Delete this cafe?');">
+            {% if csrf_token is defined %}
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            {% endif %}
+            <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
+          </form>
+        </div>
+      </div>
+    </article>
+  </div>
+{% endmacro %}
+
+{% block content %}
+{% set cafe_items = cafe if cafe is defined else [] %}
+
+<div class="page-heading mb-4">
+  <p class="eyebrow mb-2">Location results</p>
+  <h1 class="h2 mb-0">
+    Cafes{% if loc is defined %} in {{ loc }}{% elif location is defined %} in {{ location }}{% endif %}
+  </h1>
+</div>
+
+{% if cafe_items %}
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+    {% for cafe in cafe_items %}
+      {{ cafe_card(cafe) }}
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="empty-state">
+    <h2 class="h4">No cafes found here</h2>
+    <p class="text-muted mb-4">Try another location or add a cafe for this area.</p>
+    <a class="btn btn-coffee" href="{{ url_for('add') }}">Add Cafe</a>
+  </div>
+{% endif %}
+{% endblock %}

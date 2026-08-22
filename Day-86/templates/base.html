@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Cafe Manager{% endblock %}</title>
+  {{ bootstrap.load_css() }}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light app-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">Cafe Manager</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('all_data') }}">All Cafes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('get_random') }}">Random Pick</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('add') }}">Add Cafe</a>
+          </li>
+        </ul>
+
+        <form class="d-flex nav-search" id="locationSearch" data-search-template="{{ url_for('search', loc='__loc__') }}">
+          <input class="form-control" id="locationInput" type="search" placeholder="Search location" aria-label="Search location">
+          <button class="btn btn-coffee ms-2" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container py-4 py-lg-5">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-stack mb-4">
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category if category in ['success', 'info', 'warning', 'danger'] else 'info' }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>Cafe Manager</span>
+      <span>Find quiet corners, good coffee, and work-friendly tables.</span>
+    </div>
+  </footer>
+
+  {{ bootstrap.load_js() }}
+  <script>
+    const searchForm = document.getElementById("locationSearch");
+    if (searchForm) {
+      searchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const input = document.getElementById("locationInput");
+        const location = input.value.trim();
+        if (!location) return;
+        window.location.href = searchForm.dataset.searchTemplate.replace("__loc__", encodeURIComponent(location));
+      });
+    }
+  </script>
+</body>
+</html>
