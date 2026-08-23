@@ -1,0 +1,50 @@
+{% from "bootstrap5/utils.html" import render_messages %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Todo App{% endblock %}</title>
+    {{ bootstrap.load_css() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-semibold" href="{{ url_for('home') }}">Todo App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    {% if current_user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('get_tasks') }}">Tasks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary btn-sm" href="{{ url_for('create_task') }}">New Task</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary btn-sm" href="{{ url_for('register') }}">Register</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4 py-md-5">
+        {{ render_messages(container=False, dismissible=True) }}
+        {% block content %}{% endblock %}
+    </main>
+
+    {{ bootstrap.load_js() }}
+    <script src="{{ url_for('static', filename='js/tasks.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% from "bootstrap5/form.html" import render_form %}
+{% extends "base.html" %}
+
+{% block title %}Login | Todo App{% endblock %}
+
+{% block content %}
+<div class="auth-shell">
+    <div class="auth-panel">
+        <h1 class="h3 fw-bold mb-2">Welcome back</h1>
+        <p class="text-secondary mb-4">Login to manage your todo list.</p>
+
+        {{ render_form(form, button_map={"submit": "primary w-100"}) }}
+
+        <p class="text-secondary mt-4 mb-0">
+            New here?
+            <a href="{{ url_for('register') }}">Create an account</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

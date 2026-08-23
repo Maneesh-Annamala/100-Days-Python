@@ -1,0 +1,18 @@
+{% from "bootstrap5/form.html" import render_form %}
+{% extends "base.html" %}
+
+{% block title %}Edit Task | Todo App{% endblock %}
+
+{% block content %}
+<div class="form-shell">
+    <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <h1 class="h3 fw-bold mb-1">Edit Task</h1>
+            <p class="text-secondary mb-0">Update the task details.</p>
+        </div>
+        <a class="btn btn-outline-secondary btn-sm" href="{{ url_for('get_tasks') }}">Back</a>
+    </div>
+
+    {{ render_form(form, button_map={"submit": "primary"}) }}
+</div>
+{% endblock %}
