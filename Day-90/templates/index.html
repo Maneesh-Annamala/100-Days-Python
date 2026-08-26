@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image Color Extractor</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .upload-box {
+            background: white;
+            border: 2px dashed #aaa;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        #imageInput {
+            margin: 20px 0;
+        }
+
+        button {
+            display: block;
+            margin: auto;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        #preview {
+            display: none;
+            max-width: 500px;
+            max-height: 400px;
+            margin: 30px auto 0;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .results {
+            margin-top: 40px;
+        }
+
+        .results h2 {
+            margin-bottom: 20px;
+        }
+
+        .colors {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .color-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-box {
+            height: 120px;
+        }
+
+        .hex-code {
+            padding: 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        #message {
+            margin-top: 20px;
+            color: #555;
+        }
+
+        @media (max-width: 700px) {
+            .colors {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎨 Image Color Extractor</h1>
+
+    <p class="description">
+        Upload an image and find its top 10 most common colors.
+    </p>
+
+
+    <div class="upload-box">
+
+        <h2>Upload Your Image</h2>
+
+        <input
+            type="file"
+            id="imageInput"
+            accept="image/*"
+        >
+
+        <button onclick="analyzeImage()">
+            Analyze Colors
+        </button>
+
+        <img id="preview" alt="Image Preview">
+
+        <p id="message"></p>
+
+    </div>
+
+
+    <div class="results">
+
+        <h2>Top 10 Colors</h2>
+
+        <div id="colors" class="colors"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const imageInput = document.getElementById("imageInput");
+    const preview = document.getElementById("preview");
+    const message = document.getElementById("message");
+    const colorsContainer = document.getElementById("colors");
+
+
+    // Show image preview
+    imageInput.addEventListener("change", function () {
+
+        const file = imageInput.files[0];
+
+        if (!file) {
+            preview.style.display = "none";
+            return;
+        }
+
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+
+        colorsContainer.innerHTML = "";
+        message.textContent = "";
+
+    });
+
+
+    async function analyzeImage() {
+
+        const file = imageInput.files[0];
+
+        if (!file) {
+            message.textContent = "Please select an image first.";
+            return;
+        }
+
+
+        // Create FormData
+        const formData = new FormData();
+
+        // IMPORTANT:
+        // This "image" must match your FastAPI parameter name.
+        formData.append("image", file);
+
+
+        message.textContent = "Analyzing image...";
+
+
+        try {
+
+            const response = await fetch("/analyze", {
+                method: "POST",
+                body: formData
+            });
+
+
+            if (!response.ok) {
+                throw new Error("Something went wrong.");
+            }
+
+
+            const data = await response.json();
+
+            console.log(data);
+
+
+            // Clear previous colors
+            colorsContainer.innerHTML = "";
+
+
+            // Display colors
+            data.colors.forEach((color, index) => {
+
+                const card = document.createElement("div");
+
+                card.className = "color-card";
+
+                card.innerHTML = `
+                    <div
+                        class="color-box"
+                        style="background-color: ${color};"
+                    ></div>
+
+                    <div class="hex-code">
+                        ${index + 1}. ${color}
+                    </div>
+                `;
+
+                colorsContainer.appendChild(card);
+
+            });
+
+
+            message.textContent = "Analysis completed!";
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            message.textContent =
+                "Failed to analyze the image.";
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
