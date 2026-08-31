@@ -1,0 +1,65 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Search Results
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h1 class="mb-4">
+        Search Results
+    </h1>
+
+
+    <div class="row g-4">
+
+        {% for product in products %}
+
+        <div class="col-md-4">
+
+            <div class="card product-card h-100">
+
+                <img
+                    src="{{ product.thumbnail }}"
+                    class="card-img-top product-image"
+                    alt="{{ product.title }}"
+                >
+
+                <div class="card-body">
+
+                    <h5>
+                        {{ product.title }}
+                    </h5>
+
+                    <p class="text-muted">
+                        {{ product.description[:100] }}...
+                    </p>
+
+                    <h5>
+                        ${{ product.price }}
+                    </h5>
+
+                    <a
+                        href="{{ url_for('view_product', prod_id=product.id) }}"
+                        class="btn btn-dark mt-3"
+                    >
+                        View Product
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

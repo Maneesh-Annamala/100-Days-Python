@@ -1,0 +1,174 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+{{ product.title }} - MiniShop
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="row g-5">
+
+        <!-- Product Image -->
+
+        <div class="col-md-6">
+
+            <div class="product-detail-image">
+
+                <img
+                    src="{{ product.images[0] }}"
+                    class="img-fluid"
+                    alt="{{ product.title }}"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- Product Information -->
+
+        <div class="col-md-6">
+
+            <span class="badge bg-secondary mb-3">
+                {{ product.category }}
+            </span>
+
+            <h1>
+                {{ product.title }}
+            </h1>
+
+            <p class="text-muted">
+                Brand: {{ product.brand }}
+            </p>
+
+
+            <div class="rating mb-3">
+
+                <span class="text-warning fs-5">
+                    ★ {{ product.rating }}
+                </span>
+
+                <span class="text-muted">
+                    / 5
+                </span>
+
+            </div>
+
+
+            <h2 class="mb-3">
+                ${{ product.price }}
+            </h2>
+
+
+            <p>
+                {{ product.description }}
+            </p>
+
+
+            <hr>
+
+
+            <div class="row">
+
+                <div class="col-6">
+
+                    <strong>Stock</strong>
+
+                    <p>
+                        {{ product.stock }}
+                    </p>
+
+                </div>
+
+
+                <div class="col-6">
+
+                    <strong>Status</strong>
+
+                    <p>
+                        {{ product.availabilityStatus }}
+                    </p>
+
+                </div>
+
+
+                <div class="col-6">
+
+                    <strong>Shipping</strong>
+
+                    <p>
+                        {{ product.shippingInformation }}
+                    </p>
+
+                </div>
+
+
+                <div class="col-6">
+
+                    <strong>Warranty</strong>
+
+                    <p>
+                        {{ product.warrantyInformation }}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button class="btn btn-dark btn-lg w-100">
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Reviews -->
+
+    <section class="mt-5">
+
+        <h2 class="mb-4">
+            Customer Reviews
+        </h2>
+
+
+        {% for review in product.reviews %}
+
+        <div class="card mb-3">
+
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between">
+
+                    <strong>
+                        {{ review.reviewerName }}
+                    </strong>
+
+                    <span class="text-warning">
+                        ★ {{ review.rating }}
+                    </span>
+
+                </div>
+
+                <p class="mt-2 mb-0">
+                    {{ review.comment }}
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+</div>
+
+{% endblock %}
+
