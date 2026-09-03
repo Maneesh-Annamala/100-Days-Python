@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}
+Payment
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+
+    .payment-box {
+
+        background: white;
+
+        max-width: 450px;
+
+        margin: 60px auto;
+
+        padding: 40px;
+
+        text-align: center;
+
+        border-radius: 12px;
+
+    }
+
+    .amount {
+
+        font-size: 35px;
+
+        font-weight: bold;
+
+        margin: 25px 0;
+
+    }
+
+    .pay-btn {
+
+        width: 100%;
+
+        padding: 15px;
+
+        background: black;
+
+        color: white;
+
+        border: none;
+
+        border-radius: 7px;
+
+        cursor: pointer;
+
+        font-size: 17px;
+
+    }
+
+    .demo {
+
+        color: #888;
+
+        margin-top: 20px;
+
+        font-size: 13px;
+
+    }
+
+</style>
+
+
+<div class="container">
+
+    <div class="payment-box">
+
+        <h1>
+            Payment
+        </h1>
+
+
+        <p>
+            Order #{{ order.id }}
+        </p>
+
+
+        <p>
+            Amount
+        </p>
+
+
+        <div class="amount">
+
+            ₹{{ order.total_amount }}
+
+        </div>
+
+
+        <form method="POST">
+
+            <button
+                class="pay-btn"
+                type="submit"
+            >
+                Pay Now
+            </button>
+
+        </form>
+
+
+        <p class="demo">
+
+            Demo payment for learning purposes.
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

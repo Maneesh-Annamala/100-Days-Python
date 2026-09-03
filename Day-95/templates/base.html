@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        My Store
+        {% endblock %}
+    </title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        nav {
+            background: #111;
+            color: white;
+
+            padding: 18px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav h2 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 10px 18px;
+
+            background: #111;
+            color: white;
+
+            border: none;
+            border-radius: 6px;
+
+            text-decoration: none;
+
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #333;
+        }
+
+        .flash {
+            width: 86%;
+            max-width: 1200px;
+
+            margin: 20px auto;
+
+            padding: 12px;
+
+            background: #ffe4e4;
+
+            border-radius: 6px;
+        }
+
+    </style>
+
+    {% block head %}
+    {% endblock %}
+
+</head>
+
+
+<body>
+
+<nav>
+
+    <h2>My Store</h2>
+
+    <div>
+
+        <a href="{{ url_for('home') }}">
+            Home
+        </a>
+
+        {% if current_user.is_authenticated %}
+
+            <a href="{{ url_for('goto_cart') }}">
+                Cart
+            </a>
+
+            <a href="{{ url_for('wishlist') }}">
+                Wishlist
+            </a>
+
+            <a href="{{ url_for('logout') }}">
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="{{ url_for('login') }}">
+                Login
+            </a>
+
+            <a href="{{ url_for('register') }}">
+                Register
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</nav>
+
+
+{% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+
+        {% for message in messages %}
+
+            <div class="flash">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endwith %}
+
+
+{% block content %}
+{% endblock %}
+
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}
+Order Successful
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+
+    .success-box {
+
+        background: white;
+
+        max-width: 550px;
+
+        margin: 70px auto;
+
+        padding: 50px;
+
+        text-align: center;
+
+        border-radius: 12px;
+
+    }
+
+    .success-icon {
+
+        font-size: 70px;
+
+        margin-bottom: 20px;
+
+    }
+
+    .success-box h1 {
+
+        margin-bottom: 20px;
+
+    }
+
+    .success-box p {
+
+        margin: 10px 0;
+
+    }
+
+</style>
+
+
+<div class="container">
+
+    <div class="success-box">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <h1>
+            Order Successful!
+        </h1>
+
+
+        <p>
+            Thank you for your purchase.
+        </p>
+
+
+        <p>
+            Order ID:
+            <strong>#{{ order.id }}</strong>
+        </p>
+
+
+        <p>
+            Amount Paid:
+            <strong>
+                ₹{{ order.total_amount }}
+            </strong>
+        </p>
+
+
+        <p>
+            Payment Status:
+            <strong>
+                {{ order.payment_status }}
+            </strong>
+        </p>
+
+
+        <a
+            class="btn"
+            href="{{ url_for('home') }}"
+        >
+            Continue Shopping
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

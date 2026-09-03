@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block title %}
+Checkout
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+
+    .checkout-box {
+
+        background: white;
+
+        padding: 30px;
+
+        border-radius: 10px;
+
+        max-width: 900px;
+
+        margin: auto;
+
+    }
+
+    .checkout-item {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 20px;
+
+        padding: 20px 0;
+
+        border-bottom: 1px solid #ddd;
+
+    }
+
+    .checkout-item img {
+
+        width: 100px;
+
+        height: 100px;
+
+        object-fit: contain;
+
+    }
+
+    .item-info {
+
+        flex: 1;
+
+    }
+
+    .total {
+
+        display: flex;
+
+        justify-content: space-between;
+
+        margin-top: 25px;
+
+        padding-top: 20px;
+
+        border-top: 2px solid #222;
+
+        font-size: 22px;
+
+        font-weight: bold;
+
+    }
+
+    .place-order {
+
+        width: 100%;
+
+        padding: 15px;
+
+        margin-top: 25px;
+
+        background: black;
+
+        color: white;
+
+        border: none;
+
+        border-radius: 7px;
+
+        font-size: 17px;
+
+        cursor: pointer;
+
+    }
+
+</style>
+
+
+<div class="container">
+
+    <div class="checkout-box">
+
+        <h1>
+            Review Your Order
+        </h1>
+
+
+        {% for item in products %}
+
+        <div class="checkout-item">
+
+            <img
+                src="{{ item.prod_rel.img_link }}"
+                alt="{{ item.prod_rel.title }}"
+            >
+
+
+            <div class="item-info">
+
+                <h3>
+                    {{ item.prod_rel.title }}
+                </h3>
+
+                <p>
+                    ₹{{ item.prod_rel.price }}
+                    ×
+                    {{ item.quantity }}
+                </p>
+
+            </div>
+
+
+            <strong>
+
+                ₹{{ item.prod_rel.price * item.quantity }}
+
+            </strong>
+
+        </div>
+
+        {% endfor %}
+
+
+        <div class="total">
+
+            <span>
+                Total
+            </span>
+
+            <span>
+                ₹{{ total }}
+            </span>
+
+        </div>
+
+
+        <form method="POST">
+
+            <button
+                class="place-order"
+                type="submit"
+            >
+                Place Order
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

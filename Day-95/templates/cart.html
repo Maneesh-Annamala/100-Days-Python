@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+
+{% block title %}
+Cart
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+
+    .cart-layout {
+
+        display: grid;
+
+        grid-template-columns: 2fr 1fr;
+
+        gap: 30px;
+
+    }
+
+    .cart-item {
+
+        background: white;
+
+        padding: 20px;
+
+        margin-bottom: 15px;
+
+        border-radius: 10px;
+
+        display: flex;
+
+        gap: 20px;
+
+        align-items: center;
+
+    }
+
+    .cart-item img {
+
+        width: 120px;
+
+        height: 120px;
+
+        object-fit: contain;
+
+    }
+
+    .cart-info {
+
+        flex: 1;
+
+    }
+
+    .cart-info h2 {
+
+        margin-bottom: 10px;
+
+    }
+
+    .summary {
+
+        background: white;
+
+        padding: 25px;
+
+        border-radius: 10px;
+
+        height: fit-content;
+
+    }
+
+    .summary-row {
+
+        display: flex;
+
+        justify-content: space-between;
+
+        margin: 15px 0;
+
+    }
+
+    .checkout-btn {
+
+        display: block;
+
+        width: 100%;
+
+        text-align: center;
+
+        padding: 15px;
+
+        background: black;
+
+        color: white;
+
+        text-decoration: none;
+
+        border-radius: 7px;
+
+        margin-top: 20px;
+
+    }
+
+    @media(max-width: 800px) {
+
+        .cart-layout {
+
+            grid-template-columns: 1fr;
+
+        }
+
+    }
+
+</style>
+
+
+<div class="container">
+
+    <h1>
+        Shopping Cart
+    </h1>
+
+    <br>
+
+
+    {% if products %}
+
+    <div class="cart-layout">
+
+
+        <div>
+
+            {% for item in products %}
+
+            <div class="cart-item">
+
+                <img
+                    src="{{ item.prod_rel.img_link }}"
+                    alt="{{ item.prod_rel.title }}"
+                >
+
+
+                <div class="cart-info">
+
+                    <h2>
+                        {{ item.prod_rel.title }}
+                    </h2>
+
+                    <p>
+                        ₹{{ item.prod_rel.price }}
+                    </p>
+
+                    <p>
+                        Quantity:
+                        {{ item.quantity }}
+                    </p>
+
+                    <p>
+                        Subtotal:
+                        ₹{{ item.prod_rel.price * item.quantity }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <div class="summary">
+
+            <h2>
+                Order Summary
+            </h2>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Items
+                </span>
+
+                <span>
+                    {{ products|length }}
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <strong>
+                    Total
+                </strong>
+
+                <strong>
+                    ₹{{ total }}
+                </strong>
+
+            </div>
+
+
+            <a
+                class="checkout-btn"
+                href="{{ url_for('checkout') }}"
+            >
+                Proceed to Checkout
+            </a>
+
+        </div>
+
+    </div>
+
+
+    {% else %}
+
+    <p>
+        Your cart is empty.
+    </p>
+
+    <br>
+
+    <a
+        class="btn"
+        href="{{ url_for('home') }}"
+    >
+        Continue Shopping
+    </a>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

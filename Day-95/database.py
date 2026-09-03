@@ -3,15 +3,14 @@ from flask_login import UserMixin
 from sqlalchemy.orm import relationship,Mapped,mapped_column,DeclarativeBase
 from werkzeug.security import generate_password_hash,check_password_hash
 from sqlalchemy import Integer,String,Text,ForeignKey
-from main import app
 from typing import List
 
 class Base(DeclarativeBase):
     pass
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///./e-commerce.db"
+
 db = SQLAlchemy(model_class=Base)
-db.init_app(app)
+
 
 class Users(UserMixin,db.Model):
     __tablename__ = "users"
@@ -20,12 +19,14 @@ class Users(UserMixin,db.Model):
     email : Mapped[str] = mapped_column(String(250),unique=True)
     password : Mapped[str] = mapped_column(String(300))
     reviews : Mapped[List["Reviews"]] = relationship(back_populates="user")
-    cart_rel = Mapped[List["Cart"]] = relationship(back_populates="cart_rel")
+    cart_rel : Mapped[List["Cart"]] = relationship(back_populates="cart_rel")
     wish_user_rel : Mapped[List["Wishlist"]] = relationship(back_populates="wish_user_rel")
+    orders : Mapped[List["Orders"]] = relationship(back_populates="user")
 
 class Products(db.Model):
     __tablename__  = "products"
     id : Mapped[int] = mapped_column(Integer,primary_key=True)
+    title : Mapped[str] = mapped_column(String,nullable=False)
     img_link : Mapped[str] = mapped_column(String(300),nullable=False)
     prod_link : Mapped[str] = mapped_column(String(500),nullable=False)
     description : Mapped[str] = mapped_column(Text,nullable=False)
@@ -61,3 +62,24 @@ class Reviews(db.Model):
     review : Mapped[str] = mapped_column(Text)
     user : Mapped["Users"] = relationship(Users,back_populates="reviews")
     product : Mapped["Products"] = relationship(Products,back_populates="reviews")
+
+class Orders(db.Model):
+    __tablename__ = "orders"
+    id : Mapped[int] = mapped_column(Integer,primary_key=True)
+    user_id : Mapped[int] = mapped_column(ForeignKey("users.id"),nullable=False)  
+    total_amount : Mapped[int] = mapped_column(Integer,nullable=False)
+    # stripe_session_id : Mapped[str] = mapped_column(String(300),unique=True,nullable=False)
+    payment_status : Mapped[str] = mapped_column(String(50),default="pending",nullable=False)
+    user: Mapped["Users"] = relationship(back_populates="orders")
+    items: Mapped[List["OrderItems"]] = relationship(back_populates="order")
+
+class OrderItems(db.Model):
+    __tablename__ = "orderitems"
+    id : Mapped[int] = mapped_column(Integer,primary_key=True)
+    order_id: Mapped[int] = mapped_column(ForeignKey("orders.id"),nullable=False)
+    product_id: Mapped[int] = mapped_column(ForeignKey("products.id"),nullable=False)
+    quantity: Mapped[int] = mapped_column(Integer,nullable=False)
+    price: Mapped[int] = mapped_column(Integer,nullable=False)
+    order: Mapped["Orders"] = relationship(back_populates="items")
+    product: Mapped["Products"] = relationship()
+

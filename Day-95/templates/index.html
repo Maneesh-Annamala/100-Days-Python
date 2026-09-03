@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home - My Store
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+
+    .hero {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        color: #666;
+    }
+
+    .products {
+        display: grid;
+
+        grid-template-columns:
+            repeat(auto-fill, minmax(250px, 1fr));
+
+        gap: 25px;
+    }
+
+    .product-card {
+        background: white;
+
+        border-radius: 10px;
+
+        overflow: hidden;
+
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+
+        padding-bottom: 20px;
+    }
+
+    .product-card img {
+        width: 100%;
+        height: 220px;
+
+        object-fit: contain;
+
+        padding: 15px;
+    }
+
+    .product-info {
+        padding: 15px;
+    }
+
+    .product-info h2 {
+        margin-bottom: 8px;
+    }
+
+    .brand {
+        color: #777;
+        margin-bottom: 10px;
+    }
+
+    .price {
+        font-size: 20px;
+        font-weight: bold;
+
+        margin-bottom: 15px;
+    }
+
+    .actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .wishlist-btn {
+        background: white;
+        color: #111;
+
+        border: 1px solid #111;
+    }
+
+</style>
+
+
+<div class="container">
+
+    <div class="hero">
+
+        <h1>
+            Welcome to My Store
+        </h1>
+
+        <p>
+            Find the products you love.
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            <img
+                src="{{ product.img_link }}"
+                alt="{{ product.title }}"
+            >
+
+
+            <div class="product-info">
+
+                <h2>
+                    {{ product.title }}
+                </h2>
+
+                <p class="brand">
+                    {{ product.brand }}
+                </p>
+
+                <p class="price">
+                    ₹{{ product.price }}
+                </p>
+
+
+                <div class="actions">
+
+                    <a
+                        class="btn"
+                        href="{{ url_for(
+                            'show_product',
+                            prod_id=product.id
+                        ) }}"
+                    >
+                        View
+                    </a>
+
+
+                    {% if current_user.is_authenticated %}
+
+                    <form
+                        method="POST"
+                        action="{{ url_for(
+                            'add_wishlist',
+                            prod_id=product.id
+                        ) }}"
+                    >
+
+                        <button
+                            class="btn wishlist-btn"
+                            type="submit"
+                        >
+                            ♡
+                        </button>
+
+                    </form>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}
+Search Results
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+
+    <h1>
+        Search Results
+    </h1>
+
+    <br>
+
+
+    {% if products %}
+
+        {% for product in products %}
+
+            <div
+                style="
+                    background:white;
+                    padding:20px;
+                    margin-bottom:15px;
+                    border-radius:10px;
+                "
+            >
+
+                <h2>
+                    {{ product.title }}
+                </h2>
+
+                <p>
+                    {{ product.brand }}
+                </p>
+
+                <p>
+                    ₹{{ product.price }}
+                </p>
+
+                <br>
+
+                <a
+                    class="btn"
+                    href="{{ url_for(
+                        'show_product',
+                        prod_id=product.id
+                    ) }}"
+                >
+                    View Product
+                </a>
+
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>
+            No products found.
+        </p>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
